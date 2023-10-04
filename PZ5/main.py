@@ -5,14 +5,14 @@ def f(x):
     :param x: np.array(np.float) вектор длины 2
     :return: np.float
     """
-    return np.sum(np.tan(x))
+    return np.sum(np.cos(x)**3)
 def grad_f(x):
     """
     Градиент функциии f, определенной выше.
     :param x: np.array[2]: float вектор длины 2
     :return: np.array[2]: float вектор длины 2
     """
-    return np.tan(x)** 2 + 1
+    return np.sin(x) * -3
 
 
 def grad_descent_2d(f, grad_f, lr, num_iter=100, x0=None):
@@ -59,8 +59,8 @@ Z = zs.reshape(X.shape)
 ax.plot_surface(X, Y, Z, cmap=cm.coolwarm, zorder=2)
 
 ax.plot(xs=steps[:, 0], ys=steps[:, 1], zs=steps[:, 2],
-        marker='*', markersize=20, zorder=3,
-        markerfacecolor='y', lw=3, c='black')
+        marker='p', markersize=15, zorder=3,
+        markerfacecolor='m', lw=3, c='black')
 
 ax.set_zlim(0, 5)
 ax.view_init(elev=60)
